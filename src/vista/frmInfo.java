@@ -18,6 +18,7 @@ public class frmInfo extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Información");
     }
 
     /**
