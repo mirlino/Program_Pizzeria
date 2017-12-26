@@ -15,4 +15,6 @@ Version 1.0.1
 User: admin  
 Pass: 123
 
+Se estara actualizando el programa poco a poco segun sea necesario y como conocimientos adquiridos, es decir, este programa es tomado como practica personal por lo que esta disponible para que otros usuarios puedan verificar, aportar o utilizar el mismo.
+
 [Mi pagina Web](http://www.mirlidesign.hol.es "mi informacion").
