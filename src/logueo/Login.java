@@ -1,4 +1,7 @@
-
+/*@Autor: Mirlino Mariñez 
+   Fecha: 25-12-2017
+    Ver.: 1.1.0
+*/ 
 package logueo;
 
 
@@ -17,6 +20,7 @@ public class Login extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        //METODO CIERRE DEL PROGRAMA
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
         addWindowListener(new WindowAdapter() {
@@ -31,7 +35,7 @@ public class Login extends javax.swing.JDialog {
             System.exit(0);
         }
             }
-});
+});// FIN METODO CIERRE DE PROGRAMA
     }
 
     /**
@@ -129,13 +133,14 @@ public class Login extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
+       //LOGICA DE ACCESO USUARIO AL SISTEMA
        String usuario;
        String pass;
        
        usuario = txtUser.getText();
        pass = txtPass.getText();
        
-       
+       //COMPARACION DE ACCESO
         if (usuario.equalsIgnoreCase("admin") && pass.equalsIgnoreCase("123")) {
             
             JOptionPane.showMessageDialog(null, "Bienvenido al sistema, Buenas Ventas!");
@@ -153,7 +158,7 @@ public class Login extends javax.swing.JDialog {
  
         }else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos, verifique e intente de nuevo."); 
-        }
+        }//FIN
         
         
         

@@ -1,6 +1,6 @@
 /*@Autor: Mirlino Mariñez 
-   Fecha: 25-5-2017
-    Ver.: 1.0
+   Fecha: 25-12-2017
+    Ver.: 1.1.0
 */ 
 package vista;
 

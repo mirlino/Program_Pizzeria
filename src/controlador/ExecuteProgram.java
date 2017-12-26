@@ -13,6 +13,7 @@ public class ExecuteProgram {
     
 public static void main(String[] args) {
 
+    //TRYCATCH LOOKANDFEEL VISTA WINDOWS
     try{
   
   JFrame.setDefaultLookAndFeelDecorated(true);
@@ -27,7 +28,7 @@ catch (Exception e)
   e.printStackTrace();
  }
     
-    
+    //PANEL PRINCIPAL
     PanelOrdenes p = new PanelOrdenes();
     
     p.setVisible(true);
