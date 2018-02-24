@@ -1,8 +1,8 @@
 # Pizzeria
 Este programa **pizzeria** a sido realizado en java, para probar las funcionalidades de github.
 
-**02/24/2018**  **(Version Actual)**
-Version 1.1.1 (Estable)
+**02/24/2018** 
+ Version 1.1.1 (Estable)
 * Nuevo (Notificador nuevas versiones del programa)
 * Nuevo (iconos introductivos)
 * Actualizado (Info del programa)
