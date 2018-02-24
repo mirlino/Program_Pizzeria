@@ -1,5 +1,5 @@
 # Pizzeria
-Este programa **pizzeria** a sido realizado en java, para probar las funcionalidades de github.
+Este programa **pizzeria** a sido realizado en java, para aprender sobre Git, utilizar este como estudio personal y como proyecto de referencia.
 
 **02/24/2018** 
  Version 1.1.1 (Estable)
