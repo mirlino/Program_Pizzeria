@@ -1,28 +1,33 @@
 /*@Autor: Mirlino Mariñez 
-   Fecha: 25-12-2017
-    Ver.: 1.1.0
+   Fecha: 24-02-2018
+    Ver.: 1.1.1
 */ 
 package vista;
 
+import controlador.Actualizador;
+import java.awt.Color;
 import java.awt.Cursor;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
-import javax.swing.*; 
+import javax.swing.*;
 import logueo.Login;
 
 public class PanelOrdenes extends javax.swing.JFrame {
-    
-    
-    
+
     public PanelOrdenes() {
         initComponents();
         lblInfo.setVisible(false);
+        lblUpdate.setVisible(false);
         this.setTitle("Pizzeria - Pizza Express");
         setIconImage(new ImageIcon(getClass().getResource("../images/icon_Pizza_48px.png")).getImage());
         btnCalcular.setEnabled(false);
         btnLimpiar.setEnabled(false);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,9 +53,11 @@ public class PanelOrdenes extends javax.swing.JFrame {
         txtTotalFinal = new javax.swing.JTextField();
         btnCalcular = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblInfoVer = new javax.swing.JLabel();
+        lblImagenInfo = new javax.swing.JLabel();
         lblInfo = new javax.swing.JLabel();
+        lblImagenSearchUpdate = new javax.swing.JLabel();
+        lblUpdate = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuLogOn = new javax.swing.JMenuItem();
@@ -269,19 +276,19 @@ public class PanelOrdenes extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        jLabel4.setText("Ver.1.1.0");
+        lblInfoVer.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        lblInfoVer.setText("Ver.1.1.1");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_24px.png"))); // NOI18N
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblImagenInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_24px.png"))); // NOI18N
+        lblImagenInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                lblImagenInfoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
+                lblImagenInfoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
+                lblImagenInfoMouseExited(evt);
             }
         });
 
@@ -289,6 +296,25 @@ public class PanelOrdenes extends javax.swing.JFrame {
         lblInfo.setForeground(new java.awt.Color(0, 102, 255));
         lblInfo.setText("Pulsa el icono para más información");
         lblInfo.setOpaque(true);
+
+        lblImagenSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Search_Property_24px.png"))); // NOI18N
+        lblImagenSearchUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagenSearchUpdateMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblImagenSearchUpdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImagenSearchUpdateMouseExited(evt);
+            }
+        });
+
+        lblUpdate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblUpdate.setForeground(new java.awt.Color(102, 153, 255));
+        lblUpdate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblUpdate.setText("Click para ver nuevas Actualizaciones del programa.");
+        lblUpdate.setOpaque(true);
 
         jMenu1.setText("Archivo");
 
@@ -322,12 +348,11 @@ public class PanelOrdenes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pDetalleOrden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(pTotalFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pTotalFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblInfoVer, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(613, 613, 613)
                                 .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -340,24 +365,34 @@ public class PanelOrdenes extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(pBasico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(pExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(17, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(9, 9, 9))
+                        .addGap(0, 11, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblInfo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblImagenInfo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblImagenSearchUpdate)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblImagenSearchUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(lblUpdate)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImagenInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblInfo)
                         .addGap(10, 10, 10)))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -375,7 +410,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
                             .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(4, 4, 4)
-                .addComponent(jLabel4)
+                .addComponent(lblInfoVer)
                 .addContainerGap())
         );
 
@@ -383,89 +418,162 @@ public class PanelOrdenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-       calculate();
-       
+        calculate();
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void rGrandeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rGrandeActionPerformed
         //precio pizza Grande
-        int g =1000;
+        int g = 1000;
         etiPrecioMasa.setText(Integer.toString(g));
-        
+
     }//GEN-LAST:event_rGrandeActionPerformed
 
-    
+
     private void rMedianaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rMedianaActionPerformed
         //precio pizza mediana
-        int m = 700; 
+        int m = 700;
         etiPrecioMasa.setText(Integer.toString(m));
-        
+
     }//GEN-LAST:event_rMedianaActionPerformed
 
-    
+
     private void rPequenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPequenaActionPerformed
         //precio pizza pequeña
         int p = 500;
         etiPrecioMasa.setText(Integer.toString(p));
-        
+
     }//GEN-LAST:event_rPequenaActionPerformed
 
     private void cboBasicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboBasicoActionPerformed
         eleccionPizzaBasica();
-        
+
     }//GEN-LAST:event_cboBasicoActionPerformed
 
     private void cboExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboExtraActionPerformed
-       eleccionPizzaExtra();
-        
+        eleccionPizzaExtra();
+
     }//GEN-LAST:event_cboExtraActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-       clearData();
-        
+        clearData();
+
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        frmInfo f= new frmInfo(this, true);
-        
-        f.setVisible(true);
-        
-        
-        
-    }//GEN-LAST:event_jLabel5MouseClicked
+    private void lblImagenInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenInfoMouseClicked
+        frmInfo f = new frmInfo(this, true);
 
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        f.setVisible(true);
+
+
+    }//GEN-LAST:event_lblImagenInfoMouseClicked
+
+    private void lblImagenInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenInfoMouseEntered
         lblInfo.setVisible(true);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_jLabel5MouseEntered
+    }//GEN-LAST:event_lblImagenInfoMouseEntered
 
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+    private void lblImagenInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenInfoMouseExited
         lblInfo.setVisible(false);
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        
-    }//GEN-LAST:event_jLabel5MouseExited
+
+    }//GEN-LAST:event_lblImagenInfoMouseExited
 
     private void mnuLogOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogOnActionPerformed
-         Login l = new Login(this, true);
-         l.setVisible(true);
+        Login l = new Login(this, true);
+        l.setVisible(true);
     }//GEN-LAST:event_mnuLogOnActionPerformed
 
     private void mnuLogOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogOffActionPerformed
-      
-       mnuLogOff.setEnabled(false);
-       btnCalcular.setEnabled(false);
-       btnLimpiar.setEnabled(false);
-       mnuLogOn.setEnabled(true);
-       JOptionPane.showMessageDialog(null, "Se ha deslogueado satisfactoriamente del Sistema.");
-       
+
+        mnuLogOff.setEnabled(false);
+        btnCalcular.setEnabled(false);
+        btnLimpiar.setEnabled(false);
+        mnuLogOn.setEnabled(true);
+        JOptionPane.showMessageDialog(null, "Se ha deslogueado satisfactoriamente del Sistema.");
+
     }//GEN-LAST:event_mnuLogOffActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Login l = new Login(this, true);
-         l.setVisible(true);
+        l.setVisible(true);
     }//GEN-LAST:event_formWindowOpened
 
-       
+    private void lblImagenSearchUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenSearchUpdateMouseEntered
+        lblUpdate.setVisible(true);
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+
+    }//GEN-LAST:event_lblImagenSearchUpdateMouseEntered
+
+    private void lblImagenSearchUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenSearchUpdateMouseExited
+        if (lblUpdate.equals("Versión " + Actualizador.obtenerVersion() + " disponible!")) {
+            lblUpdate.setVisible(true);
+        }else{
+        lblUpdate.setVisible(false);
+        }
+        setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+
+    }//GEN-LAST:event_lblImagenSearchUpdateMouseExited
+
+    private void lblImagenSearchUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenSearchUpdateMouseClicked
+        lblUpdate.setForeground(new Color(0, 153, 0));
+        lblUpdate.setText("Buscando Nueva Versión...");
+
+        lblImagenSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Available_Updates_24px.png")));
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //Dejamos 5 segundos para que haga una simulacion de que esta buscando mientras realiza la conexion
+                    Thread.sleep(5000);
+
+                    if (Actualizador.verificarConexion()) {
+                        if (Actualizador.obtenerVersion().equals("1.0")) {
+
+                            lblImagenSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Ok_24px.png")));
+                            
+                            lblUpdate.setForeground(new Color(0, 153, 0));
+                            lblUpdate.setText("La aplicación esta actualizada!");
+
+                        } else {
+                            
+                            frmInfoUpdate info = new frmInfoUpdate();
+                            
+                            lblImagenSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Downloading_Updates_24px.png")));
+                            lblUpdate.setVisible(true);
+                            lblUpdate.setForeground(new Color(255, 153, 0));
+                            lblUpdate.setText("Versión " + Actualizador.obtenerVersion() + " disponible!");
+                            //btnDescargar.setVisible(true);
+                            
+                            Thread.sleep(5000);
+                            
+                            Actualizador.abrirEnlace("https://github.com/mirlino/My_java_repository");
+                            
+                            Thread.sleep(10000);
+                            
+                            info.setVisible(true);
+                            
+                        }
+                    } else {
+
+                        lblImagenSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cancel_24px.png")));
+
+                        
+                        lblUpdate.setForeground(Color.RED);
+                        lblUpdate.setText("No fue posible una conexión, verifica tu conexión a internet.");
+                    }
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PanelOrdenes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }).start();
+
+
+    }//GEN-LAST:event_lblImagenSearchUpdateMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnCalcular;
@@ -480,11 +588,13 @@ public class PanelOrdenes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblImagenInfo;
+    private javax.swing.JLabel lblImagenSearchUpdate;
     private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblInfoVer;
+    private javax.swing.JLabel lblUpdate;
     public static javax.swing.JMenuItem mnuLogOff;
     public static javax.swing.JMenuItem mnuLogOn;
     private javax.swing.JPanel pBasico;
@@ -498,20 +608,18 @@ public class PanelOrdenes extends javax.swing.JFrame {
     private javax.swing.JTextField txtTotalFinal;
     // End of variables declaration//GEN-END:variables
 
-    
     //DEBAJO ESTAN LAS DECLARACIONES METODOS///
-    
     private void eleccionPizzaExtra() {
-        
+
         //eleccion de pizza extra
         int n = 0;
         int champinones = 100;
         int aceituna = 100;
         int bacon = 150;
         int pollo = 150;
-        
+
         int i = cboExtra.getSelectedIndex();
-        
+
         switch (i) {
             case 2:
                 etiIngredienteEx.setText(Integer.toString(champinones));
@@ -530,14 +638,13 @@ public class PanelOrdenes extends javax.swing.JFrame {
                 break;
             default:
                 break;
-                
+
         }//fin del switch
 
     }//fin del metodo pizzaExtra
 
-    
     private void clearData() {
-        
+
         //para limpiar los campos para nueva orden
         etiIngredienteBa.setText("");
         etiIngredienteEx.setText("");
@@ -547,19 +654,18 @@ public class PanelOrdenes extends javax.swing.JFrame {
         cboExtra.setSelectedIndex(0);
         gTipoPizza.clearSelection();
         JOptionPane.showMessageDialog(this, "Todos los campos han sido reiniciados satisfactoriamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
-       
+
     }// fin clearData
 
-    
     private void eleccionPizzaBasica() {
-        
+
         //eleccion ingrediente basico
         String n = "";
         int jamon = 50;
         int queso_extra = 70;
-        
+
         int i = cboBasico.getSelectedIndex();
-        
+
         switch (i) {
             case 1:
                 etiIngredienteBa.setText(Integer.toString(jamon));
@@ -570,37 +676,35 @@ public class PanelOrdenes extends javax.swing.JFrame {
             case 0:
                 etiIngredienteBa.setText(n);
                 break;
-            
+
             default:
                 break;
         }//fin del switch basico
 
     }//fin del metodo PizzaBasico
 
-    
     private void calculate() {
-        
+
         //calcular producto
         try {
             double masa;
             double basico;
             double extra;
             double total;
-        
-        masa = Double.parseDouble(etiPrecioMasa.getText());
-        basico = Double.parseDouble(etiIngredienteBa.getText());
-        extra = Double.parseDouble(etiIngredienteEx.getText());
-        
-        total = masa+basico+extra;
-        
-        txtTotalFinal.setText("" +total);
-            
+
+            masa = Double.parseDouble(etiPrecioMasa.getText());
+            basico = Double.parseDouble(etiIngredienteBa.getText());
+            extra = Double.parseDouble(etiIngredienteEx.getText());
+
+            total = masa + basico + extra;
+
+            txtTotalFinal.setText("" + total);
+
         } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Falta Elegir uno o más campos. Por favor complete las opciones.", "Información", JOptionPane.ERROR_MESSAGE);
-        
+            JOptionPane.showMessageDialog(this, "Falta Elegir uno o más campos. Por favor complete las opciones.", "Información", JOptionPane.ERROR_MESSAGE);
+
         }//fin trycatch 
 
     }//fin del metodo calcular
 
-    
 }//fin del jframe

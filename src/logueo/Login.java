@@ -1,6 +1,6 @@
 /*@Autor: Mirlino Mariñez 
-   Fecha: 25-12-2017
-    Ver.: 1.1.0
+   Fecha: 24-02-2018
+    Ver.: 1.1.1
 */ 
 package logueo;
 
