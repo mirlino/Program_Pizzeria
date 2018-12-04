@@ -23,4 +23,4 @@ Pass: 123
 
 Se estara actualizando el programa poco a poco segun sea necesario y como conocimientos adquiridos, es decir, este programa es tomado como practica personal por lo que esta disponible para que otros usuarios puedan verificar, aportar o utilizar el codigo fuente para estudio. No se permite su uso para caso comercial, de lo contrario primero contactarme a la siguiente direccion:
 
-[Mi pagina Web](http://www.mirlidesign.hol.es "mi informacion").
+
