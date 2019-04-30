@@ -521,7 +521,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
                     Thread.sleep(5000);
 
                     if (Actualizador.verificarConexion()) {
-                        if (Actualizador.obtenerVersion().equals("1.1.1")) {
+                        if (Actualizador.obtenerVersion().equals("1.1.2")) {
 
                             lblImagenSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Ok_24px.png")));
                             
@@ -540,7 +540,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
                             
                             Thread.sleep(5000);
                             
-                            Actualizador.abrirEnlace("https://github.com/mirlino/My_java_repository");
+                            Actualizador.abrirEnlace("https://github.com/mirlino/My_java_repository/archive/master.zip");
                             
                             Thread.sleep(10000);
                             
