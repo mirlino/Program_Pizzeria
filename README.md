@@ -1,6 +1,13 @@
 # Pizzeria
 Este programa **pizzeria** a sido realizado en java, para aprender sobre Git, utilizar este como estudio personal y como proyecto de referencia.
 
+**04/30/2019**  
+Version 1.1.2 (Actual)
+* Eliminado (Boton LogOn ).
+* Actualizado (ahora aparece la ventaba de login cuando se desloguea de la interfaz).
+* Corrección (menu no se deshabilitaba al momento del deslogueo).
+* Mejora (rendimiento de la interfaz).
+
 **02/24/2018**  
 Version 1.1.1 (Actual)
 * Nuevo (Notificador nuevas versiones del programa)
