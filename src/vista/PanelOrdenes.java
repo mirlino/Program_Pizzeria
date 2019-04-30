@@ -1,17 +1,15 @@
 /*@Autor: Mirlino Mariñez 
-   Fecha: 24-02-2018
-    Ver.: 1.1.1
+    Fecha: 24-02-2018
+    update: 30/04/2019
+    Ver.: 1.1.2
 */ 
 package vista;
 
 import controlador.Actualizador;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.io.File;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 import logueo.Login;
@@ -24,8 +22,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
         lblUpdate.setVisible(false);
         this.setTitle("Pizzeria - Pizza Express");
         setIconImage(new ImageIcon(getClass().getResource("../images/icon_Pizza_48px.png")).getImage());
-        btnCalcular.setEnabled(false);
-        btnLimpiar.setEnabled(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -60,7 +57,6 @@ public class PanelOrdenes extends javax.swing.JFrame {
         lblUpdate = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        mnuLogOn = new javax.swing.JMenuItem();
         mnuLogOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -277,7 +273,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
         });
 
         lblInfoVer.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        lblInfoVer.setText("Ver.1.1.1");
+        lblInfoVer.setText("Ver.1.1.2");
 
         lblImagenInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_24px.png"))); // NOI18N
         lblImagenInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -317,14 +313,6 @@ public class PanelOrdenes extends javax.swing.JFrame {
         lblUpdate.setOpaque(true);
 
         jMenu1.setText("Archivo");
-
-        mnuLogOn.setText("Log On");
-        mnuLogOn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuLogOnActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnuLogOn);
 
         mnuLogOff.setText("Log Off");
         mnuLogOff.addActionListener(new java.awt.event.ActionListener() {
@@ -392,7 +380,6 @@ public class PanelOrdenes extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblInfo)
                         .addGap(10, 10, 10)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -479,19 +466,23 @@ public class PanelOrdenes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lblImagenInfoMouseExited
 
-    private void mnuLogOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogOnActionPerformed
-        Login l = new Login(this, true);
-        l.setVisible(true);
-    }//GEN-LAST:event_mnuLogOnActionPerformed
-
     private void mnuLogOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogOffActionPerformed
-
+        
+       
         mnuLogOff.setEnabled(false);
         btnCalcular.setEnabled(false);
         btnLimpiar.setEnabled(false);
-        mnuLogOn.setEnabled(true);
+        cboExtra.setEnabled(false);
+        cboBasico.setEnabled(false);
+        etiPrecioMasa.setEnabled(false);
+        rGrande.setEnabled(false);
+        rMediana.setEnabled(false);
+        rPequena.setEnabled(false);
+        
         JOptionPane.showMessageDialog(null, "Se ha deslogueado satisfactoriamente del Sistema.");
-
+        
+        Login l = new Login(this, true);
+        l.setVisible(true);
     }//GEN-LAST:event_mnuLogOffActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -578,8 +569,8 @@ public class PanelOrdenes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnCalcular;
     public static javax.swing.JButton btnLimpiar;
-    private javax.swing.JComboBox<String> cboBasico;
-    private javax.swing.JComboBox<String> cboExtra;
+    public static javax.swing.JComboBox<String> cboBasico;
+    public static javax.swing.JComboBox<String> cboExtra;
     private javax.swing.JLabel etiIngredienteBa;
     private javax.swing.JLabel etiIngredienteEx;
     private javax.swing.JLabel etiLogo;
@@ -596,15 +587,14 @@ public class PanelOrdenes extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoVer;
     private javax.swing.JLabel lblUpdate;
     public static javax.swing.JMenuItem mnuLogOff;
-    public static javax.swing.JMenuItem mnuLogOn;
     private javax.swing.JPanel pBasico;
     private javax.swing.JPanel pDetalleOrden;
     private javax.swing.JPanel pExtra;
     private javax.swing.JPanel pMasa;
     private javax.swing.JPanel pTotalFinal;
-    private javax.swing.JRadioButton rGrande;
-    private javax.swing.JRadioButton rMediana;
-    private javax.swing.JRadioButton rPequena;
+    public static javax.swing.JRadioButton rGrande;
+    public static javax.swing.JRadioButton rMediana;
+    public static javax.swing.JRadioButton rPequena;
     private javax.swing.JTextField txtTotalFinal;
     // End of variables declaration//GEN-END:variables
 

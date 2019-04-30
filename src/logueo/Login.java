@@ -1,6 +1,7 @@
 /*@Autor: Mirlino Mariñez 
-   Fecha: 24-02-2018
-    Ver.: 1.1.1
+    Fecha: 24-02-2018
+    update: 30/04/2019
+    Ver.: 1.1.2
 */ 
 package logueo;
 
@@ -10,6 +11,10 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import vista.PanelOrdenes;
+import static vista.PanelOrdenes.btnCalcular;
+import static vista.PanelOrdenes.btnLimpiar;
+import static vista.PanelOrdenes.mnuLogOff;
+
 
 
 public class Login extends javax.swing.JDialog {
@@ -36,6 +41,8 @@ public class Login extends javax.swing.JDialog {
         }
             }
 });// FIN METODO CIERRE DE PROGRAMA
+        btnCalcular.setEnabled(false);
+        btnLimpiar.setEnabled(false);
     }
 
     /**
@@ -138,7 +145,7 @@ public class Login extends javax.swing.JDialog {
        String pass;
        
        usuario = txtUser.getText();
-       pass = txtPass.getText();
+       pass = new String(txtPass.getPassword()); //Actualizado 30/04/2019
        
        //COMPARACION DE ACCESO
         if (usuario.equalsIgnoreCase("admin") && pass.equalsIgnoreCase("123")) {
@@ -150,7 +157,16 @@ public class Login extends javax.swing.JDialog {
             PanelOrdenes.btnCalcular.setEnabled(true);
             PanelOrdenes.btnLimpiar.setEnabled(true);
             PanelOrdenes.mnuLogOff.setEnabled(true);
-            PanelOrdenes.mnuLogOn.setEnabled(false);
+            
+         mnuLogOff.setEnabled(true);
+         PanelOrdenes.cboExtra.setEnabled(true);
+         PanelOrdenes.cboBasico.setEnabled(true);
+         PanelOrdenes.rGrande.setEnabled(true);
+         PanelOrdenes.rMediana.setEnabled(true);
+         PanelOrdenes.rPequena.setEnabled(true);
+            
+            
+          
             
         }else if (usuario.equals("") && pass.equals("")) {
         

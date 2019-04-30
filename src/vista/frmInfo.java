@@ -1,6 +1,7 @@
 /*@Autor: Mirlino Mariñez 
    Fecha: 24-02-2018
     Ver.: 1.1.1
+    Update: 30/04/2019
 */ 
 
 package vista;
@@ -32,6 +33,7 @@ public class frmInfo extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -43,10 +45,10 @@ public class frmInfo extends javax.swing.JDialog {
         jLabel2.setText("Desarrollado por:");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Mirlino Mariñez | Fecha: 2018 | http://mirlidesign.hol.es");
+        jLabel3.setText("Mirlino Mariñez | Fecha Actualización: 30/04/2019 | https://www.linkedin.com/in/mirlino-andres-marinez-olivero/");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Version: 1.1.1");
+        jLabel4.setText("Version: 1.1.2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -69,7 +71,7 @@ public class frmInfo extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addContainerGap(10, Short.MAX_VALUE))
