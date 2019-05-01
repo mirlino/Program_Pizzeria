@@ -8,6 +8,8 @@ package vista;
 import controlador.Actualizador;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,8 +23,18 @@ public class PanelOrdenes extends javax.swing.JFrame {
         lblInfo.setVisible(false);
         lblUpdate.setVisible(false);
         this.setTitle("Pizzeria - Pizza Express");
-        setIconImage(new ImageIcon(getClass().getResource("../images/icon_Pizza_48px.png")).getImage());
-        
+      
+       
+       
+    }
+    
+    @Override //Este metodo hace que se coloque el icono del titulo del programa.
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("images/icon_Pizza_48px.png"));
+
+
+        return retValue;
     }
 
     @SuppressWarnings("unchecked")
@@ -60,6 +72,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
         mnuLogOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -540,7 +553,7 @@ public class PanelOrdenes extends javax.swing.JFrame {
                             
                             Thread.sleep(5000);
                             
-                            Actualizador.abrirEnlace("https://github.com/mirlino/My_java_repository/archive/master.zip");
+                            Actualizador.abrirEnlace("https://github.com/mirlino/My_java_repository/releases/download/v1.1.2-alpha/Pizzeria.zip");
                             
                             Thread.sleep(10000);
                             
