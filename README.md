@@ -31,6 +31,6 @@ Version 1.0.1
 User: admin  
 Pass: 123
 
-Se estara actualizando el programa poco a poco segun sea necesario y como conocimientos adquiridos, es decir, este programa es tomado como practica personal por lo que esta disponible para que otros usuarios puedan verificar, aportar o utilizar el codigo fuente para estudio. No se permite su uso para caso comercial, de lo contrario primero contactarme a la siguiente direccion:
+Se estara actualizando el programa poco a poco segun sea necesario y como conocimientos adquiridos, es decir, este programa es tomado como practica personal por lo que esta disponible para que otros usuarios puedan verificar, aportar o utilizar el codigo fuente para estudio. No se permite su uso comercial, licencia bajo [`Creative Commons`](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es) Para permisos comerciales favor contactarme en: [`Linkedin`](https://www.linkedin.com/in/mirlino-andres-marinez-olivero/)
 
 
