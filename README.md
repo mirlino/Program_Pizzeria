@@ -3,7 +3,7 @@ Este programa **pizzeria** a sido realizado en java, para aprender sobre Git, ut
 
 **04/30/2019**  
 Version 1.1.2-Alpha (Actual)
-* Descarga (Ahora se puede descargar el programa compilado).
+* Descarga (Ahora se puede descargar el programa compilado en link [`Releases`](https://github.com/mirlino/My_java_repository/releases)).
 * Eliminado ( Boton LogOn ).
 * Corrección (Se corrige un error por el que el programa no abria correctamente).
 * Agregado (Splash Screen de pruebas).
